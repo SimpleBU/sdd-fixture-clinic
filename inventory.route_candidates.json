@@ -1,0 +1,1045 @@
+{
+  "version": "1.0.0",
+  "tool": {
+    "name": "sdd-testbed-generator",
+    "version": "1.0",
+    "note": "эталонная инвентаризация: что должен выдать анализатор на этом коде"
+  },
+  "route_candidates": {
+    "sha256:d8431b19d33c1e9842dfe1cfbaaaa748416036787e57b20c08102010ae45c1dc": {
+      "candidate_id": "sha256:d8431b19d33c1e9842dfe1cfbaaaa748416036787e57b20c08102010ae45c1dc",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/PatientController.java",
+      "location": {
+        "start": {
+          "row": 19,
+          "column": 5
+        },
+        "end": {
+          "row": 22,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.PatientController",
+        "name": "getPatient"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.PatientDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.PatientController"
+      },
+      "resolved": {
+        "sha256:76c830d484af5bb64292d924d4610ccffb90a53beb31f421bc4e9318c18b2b69": {
+          "operation_id": "sha256:76c830d484af5bb64292d924d4610ccffb90a53beb31f421bc4e9318c18b2b69",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/patients/{patientId}",
+            "normalized": "/api/patients/{patientId}"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:3604782f133de33c4d6a7539f419b19f73c969e4ec86f7c52388e4d97e869cb6",
+              "name": "patientId",
+              "in": "path",
+              "value_type": {
+                "kind": "primitive",
+                "title": "integer"
+              },
+              "required": true
+            }
+          ]
+        }
+      }
+    },
+    "sha256:0c5a8084c20b82a128dcf7f1f638fb1d686fd575fc2360122cab6645e30966cc": {
+      "candidate_id": "sha256:0c5a8084c20b82a128dcf7f1f638fb1d686fd575fc2360122cab6645e30966cc",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/PatientController.java",
+      "location": {
+        "start": {
+          "row": 24,
+          "column": 5
+        },
+        "end": {
+          "row": 27,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.PatientController",
+        "name": "registerPatient"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.PatientDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.PatientController"
+      },
+      "resolved": {
+        "sha256:60e20777663325e749c077c24e717f1788c2e43e2d9e5745b2f24a09eee2ab86": {
+          "operation_id": "sha256:60e20777663325e749c077c24e717f1788c2e43e2d9e5745b2f24a09eee2ab86",
+          "http_method": "POST",
+          "path": {
+            "template": "/api/patients",
+            "normalized": "/api/patients"
+          },
+          "confidence": "high",
+          "parameters": [],
+          "request_body": {
+            "request_body_id": "sha256:dd6e1e3f99f45b4637002e6f6667185c75747970a1bdbd65b1499b0ce8758416",
+            "mode": "single",
+            "parts": [
+              {
+                "name": "patient",
+                "value_type": {
+                  "kind": "object",
+                  "title": "PatientDto",
+                  "properties": [
+                    {
+                      "name": "id",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "integer"
+                      }
+                    },
+                    {
+                      "name": "fullName",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "gender",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "birthDate",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "snils",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "omsPolicy",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "bloodType",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "allergies",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "chronicConditions",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "disability",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "photo",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "emergencyContact",
+                      "value_type": {
+                        "kind": "object",
+                        "title": "ContactPerson",
+                        "properties": [
+                          {
+                            "name": "name",
+                            "value_type": {
+                              "kind": "primitive",
+                              "title": "string"
+                            }
+                          },
+                          {
+                            "name": "phone",
+                            "value_type": {
+                              "kind": "primitive",
+                              "title": "string"
+                            }
+                          },
+                          {
+                            "name": "relation",
+                            "value_type": {
+                              "kind": "primitive",
+                              "title": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "registeredAt",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sha256:4f4b905feee02ce1ff461abe2298d8350579237211cef24de521aa53434b6596": {
+      "candidate_id": "sha256:4f4b905feee02ce1ff461abe2298d8350579237211cef24de521aa53434b6596",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/PatientController.java",
+      "location": {
+        "start": {
+          "row": 29,
+          "column": 5
+        },
+        "end": {
+          "row": 32,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.PatientController",
+        "name": "searchPatients"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.PatientDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.PatientController"
+      },
+      "resolved": {
+        "sha256:ae16251f7ddbcf78df7ae05318baae3e7e0e4bf872200a5483e54fa638cb1c90": {
+          "operation_id": "sha256:ae16251f7ddbcf78df7ae05318baae3e7e0e4bf872200a5483e54fa638cb1c90",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/patients/search",
+            "normalized": "/api/patients/search"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:a5d2e5d5e2b3610a47b19c95bd4fe91c889e33dca75368fe289fc679b429f2ea",
+              "name": "snils",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "string"
+              },
+              "required": false
+            },
+            {
+              "parameter_id": "sha256:b113fb600797a66a2df16f90bba5a5f5d97872b5bbed924b67df7bb2b6925b60",
+              "name": "fio",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "string"
+              },
+              "required": false
+            },
+            {
+              "parameter_id": "sha256:78f013fb2a90114fc79dc8cc8f81b0ea1a34b4cdbef73263c98797a4c738c7bf",
+              "name": "birthDate",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "string"
+              },
+              "required": false
+            }
+          ]
+        }
+      }
+    },
+    "sha256:05118ad879cd02bf4e92ea9c3a3aa320fd0c33ad42679f5c701dab045de87156": {
+      "candidate_id": "sha256:05118ad879cd02bf4e92ea9c3a3aa320fd0c33ad42679f5c701dab045de87156",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/MedicalRecordController.java",
+      "location": {
+        "start": {
+          "row": 17,
+          "column": 5
+        },
+        "end": {
+          "row": 20,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.MedicalRecordController",
+        "name": "listRecords"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.MedicalRecordDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.MedicalRecordController"
+      },
+      "resolved": {
+        "sha256:bd253ded468236fb5012f5f81a9a88fb254c01c2a4b9df2c7f65fe5358ed5e5d": {
+          "operation_id": "sha256:bd253ded468236fb5012f5f81a9a88fb254c01c2a4b9df2c7f65fe5358ed5e5d",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/patients/{patientId}/records",
+            "normalized": "/api/patients/{patientId}/records"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:25f69709715bcd3e85b5bd1ef9e57029b806b8135aba71c7d14741b68168c4b9",
+              "name": "patientId",
+              "in": "path",
+              "value_type": {
+                "kind": "primitive",
+                "title": "integer"
+              },
+              "required": true
+            }
+          ]
+        }
+      }
+    },
+    "sha256:7923fb4988f8ff94b8819bc19cf98a3d4be0120a9a728dfdd2a88b07f72dc5b2": {
+      "candidate_id": "sha256:7923fb4988f8ff94b8819bc19cf98a3d4be0120a9a728dfdd2a88b07f72dc5b2",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/MedicalRecordController.java",
+      "location": {
+        "start": {
+          "row": 22,
+          "column": 5
+        },
+        "end": {
+          "row": 25,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.MedicalRecordController",
+        "name": "addRecord"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.MedicalRecordDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.MedicalRecordController"
+      },
+      "resolved": {
+        "sha256:24c42c7cd8ea40566bdf5b2f39002fdc7f65cf707f69b4660f9106a8b6fec95e": {
+          "operation_id": "sha256:24c42c7cd8ea40566bdf5b2f39002fdc7f65cf707f69b4660f9106a8b6fec95e",
+          "http_method": "POST",
+          "path": {
+            "template": "/api/patients/{patientId}/records",
+            "normalized": "/api/patients/{patientId}/records"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:26706a7925a4f0df2784580042a7ad7e4855f91301fe8675f44553aafde8ac1e",
+              "name": "patientId",
+              "in": "path",
+              "value_type": {
+                "kind": "primitive",
+                "title": "integer"
+              },
+              "required": true
+            }
+          ],
+          "request_body": {
+            "request_body_id": "sha256:eba07ec2fa83d02e084b5b68b98d5184b0e7e6cebe84b2b5713eae40e829218e",
+            "mode": "single",
+            "parts": [
+              {
+                "name": "record",
+                "value_type": {
+                  "kind": "object",
+                  "title": "MedicalRecordDto",
+                  "properties": [
+                    {
+                      "name": "id",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "integer"
+                      }
+                    },
+                    {
+                      "name": "patientId",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "integer"
+                      }
+                    },
+                    {
+                      "name": "diagnosis",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "icd10Code",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "anamnesis",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "prescriptions",
+                      "value_type": {
+                        "kind": "array",
+                        "title": "List",
+                        "items": {
+                          "kind": "object",
+                          "title": "PrescriptionDto",
+                          "properties": [
+                            {
+                              "name": "drug",
+                              "value_type": {
+                                "kind": "primitive",
+                                "title": "string"
+                              }
+                            },
+                            {
+                              "name": "dosage",
+                              "value_type": {
+                                "kind": "primitive",
+                                "title": "string"
+                              }
+                            },
+                            {
+                              "name": "prescriptionFormat",
+                              "value_type": {
+                                "kind": "primitive",
+                                "title": "string"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "name": "doctorNotes",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "attendingPhysician",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "createdBy",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "historyLog",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "createdAt",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sha256:694c8a1566659f025a84d6a51bf1d1e23f2822edaee5356f48c4b5841bdf1bae": {
+      "candidate_id": "sha256:694c8a1566659f025a84d6a51bf1d1e23f2822edaee5356f48c4b5841bdf1bae",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/LabResultController.java",
+      "location": {
+        "start": {
+          "row": 18,
+          "column": 5
+        },
+        "end": {
+          "row": 21,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.LabResultController",
+        "name": "getLabResult"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.LabResultDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.LabResultController"
+      },
+      "resolved": {
+        "sha256:7ae0e509d17a62c4f05e744eb774027e39e4040ebf7a80d1db9588b8a98301cf": {
+          "operation_id": "sha256:7ae0e509d17a62c4f05e744eb774027e39e4040ebf7a80d1db9588b8a98301cf",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/lab-results/{resultId}",
+            "normalized": "/api/lab-results/{resultId}"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:bd33591c3ae745b162c8060e6f7cffbeecd88a4251917354b30e54f4cea6e0e7",
+              "name": "resultId",
+              "in": "path",
+              "value_type": {
+                "kind": "primitive",
+                "title": "integer"
+              },
+              "required": true
+            }
+          ]
+        }
+      }
+    },
+    "sha256:81a456efb657ad1e2fe91e9f036d4103e10730c88cf530284e9b56b541fbd39f": {
+      "candidate_id": "sha256:81a456efb657ad1e2fe91e9f036d4103e10730c88cf530284e9b56b541fbd39f",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/LabResultController.java",
+      "location": {
+        "start": {
+          "row": 23,
+          "column": 5
+        },
+        "end": {
+          "row": 26,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.LabResultController",
+        "name": "exportLabResults"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.LabResultDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.LabResultController"
+      },
+      "resolved": {
+        "sha256:f11e73edad4004e21d9b2d0eed32294338c4e02aecacb5bc0598fa59ad4255d7": {
+          "operation_id": "sha256:f11e73edad4004e21d9b2d0eed32294338c4e02aecacb5bc0598fa59ad4255d7",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/lab-results/export",
+            "normalized": "/api/lab-results/export"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:754e12825ac9ad2f1bd2b3ef3cbbfcea5beef8f57e7ce159eb40c6850bd826ef",
+              "name": "from",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "string"
+              },
+              "required": false
+            },
+            {
+              "parameter_id": "sha256:f00c86d4e50dc27098f07ebf6bcef8872ad0ee4c7dd3373eefbad38cd3b2c015",
+              "name": "to",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "string"
+              },
+              "required": false
+            }
+          ]
+        }
+      }
+    },
+    "sha256:e27e904af98b405739fbcfa36a9ddd714a0f37c24ae529ce19bd62f71fb30ba0": {
+      "candidate_id": "sha256:e27e904af98b405739fbcfa36a9ddd714a0f37c24ae529ce19bd62f71fb30ba0",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/AppointmentController.java",
+      "location": {
+        "start": {
+          "row": 18,
+          "column": 5
+        },
+        "end": {
+          "row": 21,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.AppointmentController",
+        "name": "listAppointments"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.AppointmentDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.AppointmentController"
+      },
+      "resolved": {
+        "sha256:dab9e0eb0babd7d135710b5d247fb973741aa471c7832fb7b95b455c4688424b": {
+          "operation_id": "sha256:dab9e0eb0babd7d135710b5d247fb973741aa471c7832fb7b95b455c4688424b",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/appointments",
+            "normalized": "/api/appointments"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:f1d7a6bee5eb1e006319345bdb301021580b2435ea8b5a355e2f8ad5ad6dc608",
+              "name": "doctorId",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "integer"
+              },
+              "required": false
+            },
+            {
+              "parameter_id": "sha256:0010265416403db2d967192b3fa323a75f4ec39d00435f356c496d45ebfc7331",
+              "name": "date",
+              "in": "query",
+              "value_type": {
+                "kind": "primitive",
+                "title": "string"
+              },
+              "required": false
+            }
+          ]
+        }
+      }
+    },
+    "sha256:1002a6a3955c98e3e216c67c5a1fe4fcaf4f8bf78655a246a56a9e0417ad9277": {
+      "candidate_id": "sha256:1002a6a3955c98e3e216c67c5a1fe4fcaf4f8bf78655a246a56a9e0417ad9277",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/AppointmentController.java",
+      "location": {
+        "start": {
+          "row": 23,
+          "column": 5
+        },
+        "end": {
+          "row": 26,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.AppointmentController",
+        "name": "bookAppointment"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "java.time.LocalDate",
+          "java.util.List",
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PostMapping",
+          "org.springframework.web.bind.annotation.RequestBody",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RequestParam",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.AppointmentDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.AppointmentController"
+      },
+      "resolved": {
+        "sha256:4af7b1511fe8971fcb9a85727e11240cfa8b815b37c3d807962258960aa93f42": {
+          "operation_id": "sha256:4af7b1511fe8971fcb9a85727e11240cfa8b815b37c3d807962258960aa93f42",
+          "http_method": "POST",
+          "path": {
+            "template": "/api/appointments",
+            "normalized": "/api/appointments"
+          },
+          "confidence": "high",
+          "parameters": [],
+          "request_body": {
+            "request_body_id": "sha256:39d3807a611ee9d2a212b6b837e279575170544da4b147c59fb526ab6868ae2e",
+            "mode": "single",
+            "parts": [
+              {
+                "name": "appointment",
+                "value_type": {
+                  "kind": "object",
+                  "title": "AppointmentDto",
+                  "properties": [
+                    {
+                      "name": "id",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "integer"
+                      }
+                    },
+                    {
+                      "name": "patientId",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "integer"
+                      }
+                    },
+                    {
+                      "name": "doctorId",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "integer"
+                      }
+                    },
+                    {
+                      "name": "scheduledAt",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "reason",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "room",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    },
+                    {
+                      "name": "status",
+                      "value_type": {
+                        "kind": "primitive",
+                        "title": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sha256:efe2f2e1b98ab7e7d6c7cf8121579c9692f527c59b62adf0dba7211f2fb5a1fa": {
+      "candidate_id": "sha256:efe2f2e1b98ab7e7d6c7cf8121579c9692f527c59b62adf0dba7211f2fb5a1fa",
+      "candidate_stage": "L1",
+      "language": "java",
+      "framework": "spring",
+      "kind": "spring.mvc.annotation_method",
+      "file_path": "src/main/java/ru/testbed/clinic/controller/EquipmentController.java",
+      "location": {
+        "start": {
+          "row": 15,
+          "column": 5
+        },
+        "end": {
+          "row": 18,
+          "column": 5
+        }
+      },
+      "handler_hint": {
+        "container": "ru.testbed.clinic.controller.EquipmentController",
+        "name": "getChargeStatus"
+      },
+      "context_hint": {
+        "package": "ru.testbed.clinic.controller",
+        "imports": [
+          "org.springframework.http.ResponseEntity",
+          "org.springframework.web.bind.annotation.GetMapping",
+          "org.springframework.web.bind.annotation.PathVariable",
+          "org.springframework.web.bind.annotation.RequestMapping",
+          "org.springframework.web.bind.annotation.RestController",
+          "ru.testbed.clinic.dto.ChargeStatusDto"
+        ],
+        "static_imports": [],
+        "enclosing_type_fqn": "ru.testbed.clinic.controller.EquipmentController"
+      },
+      "resolved": {
+        "sha256:914d591bf8ef75f47c98195f589fd22536982af2bcf841ad673751545dd899c7": {
+          "operation_id": "sha256:914d591bf8ef75f47c98195f589fd22536982af2bcf841ad673751545dd899c7",
+          "http_method": "GET",
+          "path": {
+            "template": "/api/equipment/{equipmentId}/charge",
+            "normalized": "/api/equipment/{equipmentId}/charge"
+          },
+          "confidence": "high",
+          "parameters": [
+            {
+              "parameter_id": "sha256:db5bc360e8b3465837edf52f74dc55be10437f249c08a603447247e7f432b1e6",
+              "name": "equipmentId",
+              "in": "path",
+              "value_type": {
+                "kind": "primitive",
+                "title": "integer"
+              },
+              "required": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "const_decls": [
+    {
+      "symbol": "DEMO_PATIENT_SNILS",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "176-543-210 76",
+      "location": {
+        "start": {
+          "row": 9,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "BROKEN_PATIENT_SNILS",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "176-543-210 77",
+      "location": {
+        "start": {
+          "row": 10,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "ICD_CODE_DIABETES",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "E11.9",
+      "location": {
+        "start": {
+          "row": 11,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "LAB_GATEWAY_URL",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "https://lab-gw.internal.example/api",
+      "location": {
+        "start": {
+          "row": 12,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "LAB_API_KEY",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "lab_api_key=f3c9a1b27d4e8f6a0b5c3d9e",
+      "location": {
+        "start": {
+          "row": 13,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "LEGACY_HIS_HOST",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "10.20.30.40",
+      "location": {
+        "start": {
+          "row": 14,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "PACS_PUBLIC_IP",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "203.0.113.15",
+      "location": {
+        "start": {
+          "row": 15,
+          "column": 5
+        }
+      }
+    },
+    {
+      "symbol": "DOCTOR_EMAIL_SAMPLE",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "expression": "a.sidorova@clinic.example",
+      "location": {
+        "start": {
+          "row": 16,
+          "column": 5
+        }
+      }
+    }
+  ]
+}

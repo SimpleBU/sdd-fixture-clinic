@@ -1,0 +1,366 @@
+openapi: 3.0.3
+info:
+  title: SDD testbed — клиника
+  version: 1.0.0
+  description: Сгенерировано из manifest.yaml (sdd-testbed). Не править руками.
+servers:
+- url: http://localhost:8082
+paths:
+  /api/patients/{patientId}:
+    get:
+      operationId: getPatient
+      tags:
+      - PatientController
+      parameters:
+      - name: patientId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientDto'
+  /api/patients:
+    post:
+      operationId: registerPatient
+      tags:
+      - PatientController
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientDto'
+  /api/patients/search:
+    get:
+      operationId: searchPatients
+      tags:
+      - PatientController
+      parameters:
+      - name: snils
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fio
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: birthDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientDto'
+  /api/patients/{patientId}/records:
+    get:
+      operationId: listRecords
+      tags:
+      - MedicalRecordController
+      parameters:
+      - name: patientId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MedicalRecordDto'
+    post:
+      operationId: addRecord
+      tags:
+      - MedicalRecordController
+      parameters:
+      - name: patientId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MedicalRecordDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MedicalRecordDto'
+  /api/lab-results/{resultId}:
+    get:
+      operationId: getLabResult
+      tags:
+      - LabResultController
+      parameters:
+      - name: resultId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabResultDto'
+  /api/lab-results/export:
+    get:
+      operationId: exportLabResults
+      tags:
+      - LabResultController
+      parameters:
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LabResultDto'
+  /api/appointments:
+    get:
+      operationId: listAppointments
+      tags:
+      - AppointmentController
+      parameters:
+      - name: doctorId
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppointmentDto'
+    post:
+      operationId: bookAppointment
+      tags:
+      - AppointmentController
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppointmentDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppointmentDto'
+  /api/equipment/{equipmentId}/charge:
+    get:
+      operationId: getChargeStatus
+      tags:
+      - EquipmentController
+      parameters:
+      - name: equipmentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargeStatusDto'
+components:
+  schemas:
+    PatientDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        fullName:
+          type: string
+        gender:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        snils:
+          type: string
+        omsPolicy:
+          type: string
+        bloodType:
+          type: string
+        allergies:
+          type: string
+        chronicConditions:
+          type: string
+        disability:
+          type: string
+        photo:
+          type: string
+        emergencyContact:
+          $ref: '#/components/schemas/ContactPerson'
+        registeredAt:
+          type: string
+          format: date-time
+    ContactPerson:
+      type: object
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        relation:
+          type: string
+    MedicalRecordDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        patientId:
+          type: integer
+          format: int64
+        diagnosis:
+          type: string
+        icd10Code:
+          type: string
+        anamnesis:
+          type: string
+        prescriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrescriptionDto'
+        doctorNotes:
+          type: string
+        attendingPhysician:
+          type: string
+        createdBy:
+          type: string
+        historyLog:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    PrescriptionDto:
+      type: object
+      properties:
+        drug:
+          type: string
+        dosage:
+          type: string
+        prescriptionFormat:
+          type: string
+    LabResultDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        patientId:
+          type: integer
+          format: int64
+        testCode:
+          type: string
+        value:
+          type: string
+        unit:
+          type: string
+        referenceRange:
+          type: string
+        hivStatus:
+          type: string
+        resultDate:
+          type: string
+          format: date
+    AppointmentDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        patientId:
+          type: integer
+          format: int64
+        doctorId:
+          type: integer
+          format: int64
+        scheduledAt:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        room:
+          type: string
+        status:
+          type: string
+    ChargeStatusDto:
+      type: object
+      properties:
+        level:
+          type: integer
+          format: int32
+        charging:
+          type: boolean
+        lastServiceDate:
+          type: string
+          format: date

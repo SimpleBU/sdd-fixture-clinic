@@ -1,0 +1,177 @@
+# ============================================================
+# clinic — медицинская информационная система. Фокус: HEALTH (спецкатегория ПД),
+# PII_DIRECT, защищённые атрибуты, биометрия. Уязвимости: диагнозы и
+# ВИЧ-статус в выгрузках, фото пациента в ответе, ключ лабораторного шлюза в коде.
+# ============================================================
+app: clinic
+title: "SDD testbed — клиника"
+package: ru.testbed.clinic
+port: 8082
+
+dtos:
+  PatientDto:
+    - [id, Long]
+    - [fullName, String, PII_DIRECT]
+    - [gender, String, PII_DIRECT]
+    - [birthDate, LocalDate, PII_DIRECT]
+    - [snils, String, PII_DIRECT]
+    - [omsPolicy, String, HEALTH hard accept=PII_DIRECT, "полис ОМС латиницей; шаблон знает только кириллицу и insurance_number"]
+    - [bloodType, String, HEALTH]
+    - [allergies, String, HEALTH]
+    - [chronicConditions, String, HEALTH hard]
+    - [disability, String, PII_DIRECT accept=HEALTH]
+    - [photo, String, PII_DIRECT, "фото пациента (base64)"]
+    - [emergencyContact, ContactPerson]
+    - [registeredAt, Instant]
+
+  ContactPerson:
+    - [name, String, PII_DIRECT hard, "имя контактного лица; name без контекста ничего не значит"]
+    - [phone, String, PII_DIRECT]
+    - [relation, String, GRAY, "степень родства; заодно ловушка для правила геолокации (relation)"]
+
+  MedicalRecordDto:
+    - [id, Long]
+    - [patientId, Long, PII_INDIRECT hard, "patient_id — шаблон знает user_id, person_id, но не patient_id"]
+    - [diagnosis, String, HEALTH]
+    - [icd10Code, String, HEALTH hard, "код МКБ-10 = диагноз"]
+    - [anamnesis, String, HEALTH hard]
+    - [prescriptions, List<PrescriptionDto>, HEALTH]
+    - [doctorNotes, String, HEALTH hard accept=DYNAMIC, "заметки врача — свободный текст о здоровье"]
+    - [attendingPhysician, String, PII_DIRECT hard accept=PII_INDIRECT, "ФИО врача"]
+    - [createdBy, String, PII_INDIRECT]
+    - [historyLog, String, NONE trap, "журнал изменений записи (из no_match правила health)"]
+    - [createdAt, Instant]
+
+  PrescriptionDto:
+    - [drug, String, HEALTH hard]
+    - [dosage, String, HEALTH hard]
+    - [prescriptionFormat, String, NONE trap, "формат бланка рецепта"]
+
+  LabResultDto:
+    - [id, Long]
+    - [patientId, Long, PII_INDIRECT hard]
+    - [testCode, String]
+    - [value, String, HEALTH hard, "значение анализа"]
+    - [unit, String]
+    - [referenceRange, String]
+    - [hivStatus, String, HEALTH hard, "ВИЧ-статус"]
+    - [resultDate, LocalDate]
+
+  AppointmentDto:
+    - [id, Long]
+    - [patientId, Long, PII_INDIRECT hard]
+    - [doctorId, Long, GRAY]
+    - [scheduledAt, Instant]
+    - [reason, String, HEALTH hard accept=DYNAMIC, "причина визита = жалоба пациента"]
+    - [room, String]
+    - [status, String]
+
+  ChargeStatusDto:
+    - [level, Integer, NONE, "заряд батареи прибора"]
+    - [charging, Boolean]
+    - [lastServiceDate, LocalDate]
+
+controllers:
+  - class: PatientController
+    base: /api/patients
+    endpoints:
+      - op: getPatient
+        http: GET
+        path: /{patientId}
+        params: [[patientId, path, Long]]
+        returns: PatientDto
+        expect: [HEALTH, PII_DIRECT]
+      - op: registerPatient
+        http: POST
+        body: [patient, PatientDto]
+        returns: PatientDto
+        expect: [HEALTH, PII_DIRECT]
+      - op: searchPatients
+        http: GET
+        path: /search
+        params:
+          - [snils, query, String, PII_DIRECT]
+          - [fio, query, String, PII_DIRECT]
+          - [birthDate, query, LocalDate, PII_DIRECT]
+        returns: List<PatientDto>
+        expect: [HEALTH, PII_DIRECT]
+        bulk: true
+
+  - class: MedicalRecordController
+    base: /api/patients/{patientId}/records
+    endpoints:
+      - op: listRecords
+        http: GET
+        params: [[patientId, path, Long]]
+        returns: List<MedicalRecordDto>
+        expect: [HEALTH]
+        allow: [PII_DIRECT]
+        why: "записи привязаны к пациенту, но прямых идентификаторов в них нет"
+      - op: addRecord
+        http: POST
+        params: [[patientId, path, Long]]
+        body: [record, MedicalRecordDto]
+        returns: MedicalRecordDto
+        expect: [HEALTH]
+        allow: [PII_DIRECT]
+
+  - class: LabResultController
+    base: /api/lab-results
+    doc: "Результаты анализов. Ни путь, ни класс не подсказывают HEALTH."
+    endpoints:
+      - op: getLabResult
+        http: GET
+        path: /{resultId}
+        params: [[resultId, path, Long]]
+        returns: LabResultDto
+        expect: [HEALTH]
+      - op: exportLabResults
+        http: GET
+        path: /export
+        params:
+          - [from, query, LocalDate]
+          - [to, query, LocalDate]
+        returns: List<LabResultDto>
+        expect: [HEALTH]
+        bulk: true
+
+  - class: AppointmentController
+    base: /api/appointments
+    endpoints:
+      - op: listAppointments
+        http: GET
+        params:
+          - [doctorId, query, Long, GRAY]
+          - [date, query, LocalDate]
+        returns: List<AppointmentDto>
+        expect: [PII_INDIRECT]
+        allow: [HEALTH]
+      - op: bookAppointment
+        http: POST
+        body: [appointment, AppointmentDto]
+        returns: AppointmentDto
+        expect: [PII_INDIRECT]
+        allow: [HEALTH]
+
+  - class: EquipmentController
+    base: /api/equipment
+    doc: "Ловушка: заряд батареи медоборудования (charge), а не платёж."
+    endpoints:
+      - op: getChargeStatus
+        http: GET
+        path: /{equipmentId}/charge
+        params: [[equipmentId, path, Long]]
+        returns: ChargeStatusDto
+        expect: []
+
+constants:
+  - class: ClinicIntegration
+    items:
+      - [DEMO_PATIENT_SNILS, "176-543-210 76", PII_DIRECT, "СНИЛС, контрольная сумма верна"]
+      - [BROKEN_PATIENT_SNILS, "176-543-210 77", NONE trap, "контрольная сумма неверна"]
+      - [ICD_CODE_DIABETES, "E11.9", NONE, "код из справочника МКБ, не данные пациента"]
+      - [LAB_GATEWAY_URL, "https://lab-gw.internal.example/api"]
+      - [LAB_API_KEY, "lab_api_key=f3c9a1b27d4e8f6a0b5c3d9e", AUTH, "ключ лабораторного шлюза"]
+      - [LEGACY_HIS_HOST, "10.20.30.40", NONE, "приватный адрес"]
+      - [PACS_PUBLIC_IP, "203.0.113.15", NONE trap, "IP сервера PACS: инфраструктура, не персональные данные"]
+      - [DOCTOR_EMAIL_SAMPLE, "a.sidorova@clinic.example", PII_DIRECT, "личная почта врача"]

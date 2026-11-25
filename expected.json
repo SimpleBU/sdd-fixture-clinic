@@ -1,0 +1,2938 @@
+{
+  "app": "clinic",
+  "title": "SDD testbed — клиника",
+  "fields": [
+    {
+      "id": "clinic:GET /api/patients/{patientId}:param:patientId",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "param",
+      "in": "path",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "param:GET /api/patients/{patientId}:patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:id",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:PatientDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:fullName",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "fullName",
+      "rel_path": "fullName",
+      "label_ref": "dto:PatientDto.fullName",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:gender",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "gender",
+      "rel_path": "gender",
+      "label_ref": "dto:PatientDto.gender",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:birthDate",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "birthDate",
+      "rel_path": "birthDate",
+      "label_ref": "dto:PatientDto.birthDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:snils",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "snils",
+      "rel_path": "snils",
+      "label_ref": "dto:PatientDto.snils",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:omsPolicy",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "omsPolicy",
+      "rel_path": "omsPolicy",
+      "label_ref": "dto:PatientDto.omsPolicy",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "PII_DIRECT"
+      ],
+      "kind": "hard",
+      "why": "полис ОМС латиницей; шаблон знает только кириллицу и insurance_number"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:bloodType",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "bloodType",
+      "rel_path": "bloodType",
+      "label_ref": "dto:PatientDto.bloodType",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:allergies",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "allergies",
+      "rel_path": "allergies",
+      "label_ref": "dto:PatientDto.allergies",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:chronicConditions",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "chronicConditions",
+      "rel_path": "chronicConditions",
+      "label_ref": "dto:PatientDto.chronicConditions",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:disability",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "disability",
+      "rel_path": "disability",
+      "label_ref": "dto:PatientDto.disability",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "HEALTH"
+      ],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:photo",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "photo",
+      "rel_path": "photo",
+      "label_ref": "dto:PatientDto.photo",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": "фото пациента (base64)"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:emergencyContact.name",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "name",
+      "rel_path": "emergencyContact.name",
+      "label_ref": "dto:ContactPerson.name",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "имя контактного лица; name без контекста ничего не значит"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:emergencyContact.phone",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "phone",
+      "rel_path": "emergencyContact.phone",
+      "label_ref": "dto:ContactPerson.phone",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:emergencyContact.relation",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "relation",
+      "rel_path": "emergencyContact.relation",
+      "label_ref": "dto:ContactPerson.relation",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": "степень родства; заодно ловушка для правила геолокации (relation)"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}:response:registeredAt",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "location": "response_body",
+      "name": "registeredAt",
+      "rel_path": "registeredAt",
+      "label_ref": "dto:PatientDto.registeredAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:id",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "id",
+      "rel_path": "id",
+      "json_path_rc": "$.patient.id",
+      "label_ref": "dto:PatientDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:fullName",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "fullName",
+      "rel_path": "fullName",
+      "json_path_rc": "$.patient.fullName",
+      "label_ref": "dto:PatientDto.fullName",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:gender",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "gender",
+      "rel_path": "gender",
+      "json_path_rc": "$.patient.gender",
+      "label_ref": "dto:PatientDto.gender",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:birthDate",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "birthDate",
+      "rel_path": "birthDate",
+      "json_path_rc": "$.patient.birthDate",
+      "label_ref": "dto:PatientDto.birthDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:snils",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "snils",
+      "rel_path": "snils",
+      "json_path_rc": "$.patient.snils",
+      "label_ref": "dto:PatientDto.snils",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:omsPolicy",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "omsPolicy",
+      "rel_path": "omsPolicy",
+      "json_path_rc": "$.patient.omsPolicy",
+      "label_ref": "dto:PatientDto.omsPolicy",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "PII_DIRECT"
+      ],
+      "kind": "hard",
+      "why": "полис ОМС латиницей; шаблон знает только кириллицу и insurance_number"
+    },
+    {
+      "id": "clinic:POST /api/patients:request:bloodType",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "bloodType",
+      "rel_path": "bloodType",
+      "json_path_rc": "$.patient.bloodType",
+      "label_ref": "dto:PatientDto.bloodType",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:allergies",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "allergies",
+      "rel_path": "allergies",
+      "json_path_rc": "$.patient.allergies",
+      "label_ref": "dto:PatientDto.allergies",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:chronicConditions",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "chronicConditions",
+      "rel_path": "chronicConditions",
+      "json_path_rc": "$.patient.chronicConditions",
+      "label_ref": "dto:PatientDto.chronicConditions",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:disability",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "disability",
+      "rel_path": "disability",
+      "json_path_rc": "$.patient.disability",
+      "label_ref": "dto:PatientDto.disability",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "HEALTH"
+      ],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:photo",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "photo",
+      "rel_path": "photo",
+      "json_path_rc": "$.patient.photo",
+      "label_ref": "dto:PatientDto.photo",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": "фото пациента (base64)"
+    },
+    {
+      "id": "clinic:POST /api/patients:request:emergencyContact.name",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "name",
+      "rel_path": "emergencyContact.name",
+      "json_path_rc": "$.patient.emergencyContact.name",
+      "label_ref": "dto:ContactPerson.name",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "имя контактного лица; name без контекста ничего не значит"
+    },
+    {
+      "id": "clinic:POST /api/patients:request:emergencyContact.phone",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "phone",
+      "rel_path": "emergencyContact.phone",
+      "json_path_rc": "$.patient.emergencyContact.phone",
+      "label_ref": "dto:ContactPerson.phone",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:request:emergencyContact.relation",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "relation",
+      "rel_path": "emergencyContact.relation",
+      "json_path_rc": "$.patient.emergencyContact.relation",
+      "label_ref": "dto:ContactPerson.relation",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": "степень родства; заодно ловушка для правила геолокации (relation)"
+    },
+    {
+      "id": "clinic:POST /api/patients:request:registeredAt",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "request_body",
+      "name": "registeredAt",
+      "rel_path": "registeredAt",
+      "json_path_rc": "$.patient.registeredAt",
+      "label_ref": "dto:PatientDto.registeredAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:id",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:PatientDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:fullName",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "fullName",
+      "rel_path": "fullName",
+      "label_ref": "dto:PatientDto.fullName",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:gender",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "gender",
+      "rel_path": "gender",
+      "label_ref": "dto:PatientDto.gender",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:birthDate",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "birthDate",
+      "rel_path": "birthDate",
+      "label_ref": "dto:PatientDto.birthDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:snils",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "snils",
+      "rel_path": "snils",
+      "label_ref": "dto:PatientDto.snils",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:omsPolicy",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "omsPolicy",
+      "rel_path": "omsPolicy",
+      "label_ref": "dto:PatientDto.omsPolicy",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "PII_DIRECT"
+      ],
+      "kind": "hard",
+      "why": "полис ОМС латиницей; шаблон знает только кириллицу и insurance_number"
+    },
+    {
+      "id": "clinic:POST /api/patients:response:bloodType",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "bloodType",
+      "rel_path": "bloodType",
+      "label_ref": "dto:PatientDto.bloodType",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:allergies",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "allergies",
+      "rel_path": "allergies",
+      "label_ref": "dto:PatientDto.allergies",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:chronicConditions",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "chronicConditions",
+      "rel_path": "chronicConditions",
+      "label_ref": "dto:PatientDto.chronicConditions",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:disability",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "disability",
+      "rel_path": "disability",
+      "label_ref": "dto:PatientDto.disability",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "HEALTH"
+      ],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:photo",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "photo",
+      "rel_path": "photo",
+      "label_ref": "dto:PatientDto.photo",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": "фото пациента (base64)"
+    },
+    {
+      "id": "clinic:POST /api/patients:response:emergencyContact.name",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "name",
+      "rel_path": "emergencyContact.name",
+      "label_ref": "dto:ContactPerson.name",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "имя контактного лица; name без контекста ничего не значит"
+    },
+    {
+      "id": "clinic:POST /api/patients:response:emergencyContact.phone",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "phone",
+      "rel_path": "emergencyContact.phone",
+      "label_ref": "dto:ContactPerson.phone",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients:response:emergencyContact.relation",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "relation",
+      "rel_path": "emergencyContact.relation",
+      "label_ref": "dto:ContactPerson.relation",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": "степень родства; заодно ловушка для правила геолокации (relation)"
+    },
+    {
+      "id": "clinic:POST /api/patients:response:registeredAt",
+      "method": "POST",
+      "path": "/api/patients",
+      "location": "response_body",
+      "name": "registeredAt",
+      "rel_path": "registeredAt",
+      "label_ref": "dto:PatientDto.registeredAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:param:snils",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "param",
+      "in": "query",
+      "name": "snils",
+      "rel_path": "snils",
+      "label_ref": "param:GET /api/patients/search:snils",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:param:fio",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "param",
+      "in": "query",
+      "name": "fio",
+      "rel_path": "fio",
+      "label_ref": "param:GET /api/patients/search:fio",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:param:birthDate",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "param",
+      "in": "query",
+      "name": "birthDate",
+      "rel_path": "birthDate",
+      "label_ref": "param:GET /api/patients/search:birthDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:id",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:PatientDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:fullName",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "fullName",
+      "rel_path": "fullName",
+      "label_ref": "dto:PatientDto.fullName",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:gender",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "gender",
+      "rel_path": "gender",
+      "label_ref": "dto:PatientDto.gender",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:birthDate",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "birthDate",
+      "rel_path": "birthDate",
+      "label_ref": "dto:PatientDto.birthDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:snils",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "snils",
+      "rel_path": "snils",
+      "label_ref": "dto:PatientDto.snils",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:omsPolicy",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "omsPolicy",
+      "rel_path": "omsPolicy",
+      "label_ref": "dto:PatientDto.omsPolicy",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "PII_DIRECT"
+      ],
+      "kind": "hard",
+      "why": "полис ОМС латиницей; шаблон знает только кириллицу и insurance_number"
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:bloodType",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "bloodType",
+      "rel_path": "bloodType",
+      "label_ref": "dto:PatientDto.bloodType",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:allergies",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "allergies",
+      "rel_path": "allergies",
+      "label_ref": "dto:PatientDto.allergies",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:chronicConditions",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "chronicConditions",
+      "rel_path": "chronicConditions",
+      "label_ref": "dto:PatientDto.chronicConditions",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:disability",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "disability",
+      "rel_path": "disability",
+      "label_ref": "dto:PatientDto.disability",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "HEALTH"
+      ],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:photo",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "photo",
+      "rel_path": "photo",
+      "label_ref": "dto:PatientDto.photo",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": "фото пациента (base64)"
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:emergencyContact.name",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "name",
+      "rel_path": "emergencyContact.name",
+      "label_ref": "dto:ContactPerson.name",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "имя контактного лица; name без контекста ничего не значит"
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:emergencyContact.phone",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "phone",
+      "rel_path": "emergencyContact.phone",
+      "label_ref": "dto:ContactPerson.phone",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:emergencyContact.relation",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "relation",
+      "rel_path": "emergencyContact.relation",
+      "label_ref": "dto:ContactPerson.relation",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": "степень родства; заодно ловушка для правила геолокации (relation)"
+    },
+    {
+      "id": "clinic:GET /api/patients/search:response:registeredAt",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "location": "response_body",
+      "name": "registeredAt",
+      "rel_path": "registeredAt",
+      "label_ref": "dto:PatientDto.registeredAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:param:patientId",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "param",
+      "in": "path",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "param:GET /api/patients/{patientId}/records:patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:id",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:MedicalRecordDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:patientId",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "dto:MedicalRecordDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "patient_id — шаблон знает user_id, person_id, но не patient_id"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:diagnosis",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "diagnosis",
+      "rel_path": "diagnosis",
+      "label_ref": "dto:MedicalRecordDto.diagnosis",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:icd10Code",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "icd10Code",
+      "rel_path": "icd10Code",
+      "label_ref": "dto:MedicalRecordDto.icd10Code",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "код МКБ-10 = диагноз"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:anamnesis",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "anamnesis",
+      "rel_path": "anamnesis",
+      "label_ref": "dto:MedicalRecordDto.anamnesis",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:prescriptions",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "prescriptions",
+      "rel_path": "prescriptions",
+      "label_ref": "dto:MedicalRecordDto.prescriptions",
+      "type": "List<PrescriptionDto>",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:doctorNotes",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "doctorNotes",
+      "rel_path": "doctorNotes",
+      "label_ref": "dto:MedicalRecordDto.doctorNotes",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "DYNAMIC"
+      ],
+      "kind": "hard",
+      "why": "заметки врача — свободный текст о здоровье"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:attendingPhysician",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "attendingPhysician",
+      "rel_path": "attendingPhysician",
+      "label_ref": "dto:MedicalRecordDto.attendingPhysician",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "PII_INDIRECT"
+      ],
+      "kind": "hard",
+      "why": "ФИО врача"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:createdBy",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "createdBy",
+      "rel_path": "createdBy",
+      "label_ref": "dto:MedicalRecordDto.createdBy",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:historyLog",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "historyLog",
+      "rel_path": "historyLog",
+      "label_ref": "dto:MedicalRecordDto.historyLog",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "trap",
+      "why": "журнал изменений записи (из no_match правила health)"
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records:response:createdAt",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "createdAt",
+      "rel_path": "createdAt",
+      "label_ref": "dto:MedicalRecordDto.createdAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:param:patientId",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "param",
+      "in": "path",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "param:POST /api/patients/{patientId}/records:patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:id",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "id",
+      "rel_path": "id",
+      "json_path_rc": "$.record.id",
+      "label_ref": "dto:MedicalRecordDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:patientId",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "json_path_rc": "$.record.patientId",
+      "label_ref": "dto:MedicalRecordDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "patient_id — шаблон знает user_id, person_id, но не patient_id"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:diagnosis",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "diagnosis",
+      "rel_path": "diagnosis",
+      "json_path_rc": "$.record.diagnosis",
+      "label_ref": "dto:MedicalRecordDto.diagnosis",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:icd10Code",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "icd10Code",
+      "rel_path": "icd10Code",
+      "json_path_rc": "$.record.icd10Code",
+      "label_ref": "dto:MedicalRecordDto.icd10Code",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "код МКБ-10 = диагноз"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:anamnesis",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "anamnesis",
+      "rel_path": "anamnesis",
+      "json_path_rc": "$.record.anamnesis",
+      "label_ref": "dto:MedicalRecordDto.anamnesis",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:prescriptions",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "prescriptions",
+      "rel_path": "prescriptions",
+      "json_path_rc": "$.record.prescriptions",
+      "label_ref": "dto:MedicalRecordDto.prescriptions",
+      "type": "List<PrescriptionDto>",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:doctorNotes",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "doctorNotes",
+      "rel_path": "doctorNotes",
+      "json_path_rc": "$.record.doctorNotes",
+      "label_ref": "dto:MedicalRecordDto.doctorNotes",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "DYNAMIC"
+      ],
+      "kind": "hard",
+      "why": "заметки врача — свободный текст о здоровье"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:attendingPhysician",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "attendingPhysician",
+      "rel_path": "attendingPhysician",
+      "json_path_rc": "$.record.attendingPhysician",
+      "label_ref": "dto:MedicalRecordDto.attendingPhysician",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "PII_INDIRECT"
+      ],
+      "kind": "hard",
+      "why": "ФИО врача"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:createdBy",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "createdBy",
+      "rel_path": "createdBy",
+      "json_path_rc": "$.record.createdBy",
+      "label_ref": "dto:MedicalRecordDto.createdBy",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:historyLog",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "historyLog",
+      "rel_path": "historyLog",
+      "json_path_rc": "$.record.historyLog",
+      "label_ref": "dto:MedicalRecordDto.historyLog",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "trap",
+      "why": "журнал изменений записи (из no_match правила health)"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:request:createdAt",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "request_body",
+      "name": "createdAt",
+      "rel_path": "createdAt",
+      "json_path_rc": "$.record.createdAt",
+      "label_ref": "dto:MedicalRecordDto.createdAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:id",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:MedicalRecordDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:patientId",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "dto:MedicalRecordDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": "patient_id — шаблон знает user_id, person_id, но не patient_id"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:diagnosis",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "diagnosis",
+      "rel_path": "diagnosis",
+      "label_ref": "dto:MedicalRecordDto.diagnosis",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:icd10Code",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "icd10Code",
+      "rel_path": "icd10Code",
+      "label_ref": "dto:MedicalRecordDto.icd10Code",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "код МКБ-10 = диагноз"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:anamnesis",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "anamnesis",
+      "rel_path": "anamnesis",
+      "label_ref": "dto:MedicalRecordDto.anamnesis",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:prescriptions",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "prescriptions",
+      "rel_path": "prescriptions",
+      "label_ref": "dto:MedicalRecordDto.prescriptions",
+      "type": "List<PrescriptionDto>",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:doctorNotes",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "doctorNotes",
+      "rel_path": "doctorNotes",
+      "label_ref": "dto:MedicalRecordDto.doctorNotes",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "DYNAMIC"
+      ],
+      "kind": "hard",
+      "why": "заметки врача — свободный текст о здоровье"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:attendingPhysician",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "attendingPhysician",
+      "rel_path": "attendingPhysician",
+      "label_ref": "dto:MedicalRecordDto.attendingPhysician",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_DIRECT",
+      "accept": [
+        "PII_INDIRECT"
+      ],
+      "kind": "hard",
+      "why": "ФИО врача"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:createdBy",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "createdBy",
+      "rel_path": "createdBy",
+      "label_ref": "dto:MedicalRecordDto.createdBy",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:historyLog",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "historyLog",
+      "rel_path": "historyLog",
+      "label_ref": "dto:MedicalRecordDto.historyLog",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "trap",
+      "why": "журнал изменений записи (из no_match правила health)"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records:response:createdAt",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "location": "response_body",
+      "name": "createdAt",
+      "rel_path": "createdAt",
+      "label_ref": "dto:MedicalRecordDto.createdAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:param:resultId",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "param",
+      "in": "path",
+      "name": "resultId",
+      "rel_path": "resultId",
+      "label_ref": "param:GET /api/lab-results/{resultId}:resultId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:id",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:LabResultDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:patientId",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "dto:LabResultDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:testCode",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "testCode",
+      "rel_path": "testCode",
+      "label_ref": "dto:LabResultDto.testCode",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:value",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "value",
+      "rel_path": "value",
+      "label_ref": "dto:LabResultDto.value",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "значение анализа"
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:unit",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "unit",
+      "rel_path": "unit",
+      "label_ref": "dto:LabResultDto.unit",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:referenceRange",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "referenceRange",
+      "rel_path": "referenceRange",
+      "label_ref": "dto:LabResultDto.referenceRange",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:hivStatus",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "hivStatus",
+      "rel_path": "hivStatus",
+      "label_ref": "dto:LabResultDto.hivStatus",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "ВИЧ-статус"
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}:response:resultDate",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "location": "response_body",
+      "name": "resultDate",
+      "rel_path": "resultDate",
+      "label_ref": "dto:LabResultDto.resultDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:param:from",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "param",
+      "in": "query",
+      "name": "from",
+      "rel_path": "from",
+      "label_ref": "param:GET /api/lab-results/export:from",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:param:to",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "param",
+      "in": "query",
+      "name": "to",
+      "rel_path": "to",
+      "label_ref": "param:GET /api/lab-results/export:to",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:id",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:LabResultDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:patientId",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "dto:LabResultDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:testCode",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "testCode",
+      "rel_path": "testCode",
+      "label_ref": "dto:LabResultDto.testCode",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:value",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "value",
+      "rel_path": "value",
+      "label_ref": "dto:LabResultDto.value",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "значение анализа"
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:unit",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "unit",
+      "rel_path": "unit",
+      "label_ref": "dto:LabResultDto.unit",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:referenceRange",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "referenceRange",
+      "rel_path": "referenceRange",
+      "label_ref": "dto:LabResultDto.referenceRange",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:hivStatus",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "hivStatus",
+      "rel_path": "hivStatus",
+      "label_ref": "dto:LabResultDto.hivStatus",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [],
+      "kind": "hard",
+      "why": "ВИЧ-статус"
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export:response:resultDate",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "location": "response_body",
+      "name": "resultDate",
+      "rel_path": "resultDate",
+      "label_ref": "dto:LabResultDto.resultDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:param:doctorId",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "param",
+      "in": "query",
+      "name": "doctorId",
+      "rel_path": "doctorId",
+      "label_ref": "param:GET /api/appointments:doctorId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:param:date",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "param",
+      "in": "query",
+      "name": "date",
+      "rel_path": "date",
+      "label_ref": "param:GET /api/appointments:date",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:id",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:AppointmentDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:patientId",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "dto:AppointmentDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:doctorId",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "doctorId",
+      "rel_path": "doctorId",
+      "label_ref": "dto:AppointmentDto.doctorId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:scheduledAt",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "scheduledAt",
+      "rel_path": "scheduledAt",
+      "label_ref": "dto:AppointmentDto.scheduledAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:reason",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "reason",
+      "rel_path": "reason",
+      "label_ref": "dto:AppointmentDto.reason",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "DYNAMIC"
+      ],
+      "kind": "hard",
+      "why": "причина визита = жалоба пациента"
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:room",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "room",
+      "rel_path": "room",
+      "label_ref": "dto:AppointmentDto.room",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments:response:status",
+      "method": "GET",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "status",
+      "rel_path": "status",
+      "label_ref": "dto:AppointmentDto.status",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:id",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "id",
+      "rel_path": "id",
+      "json_path_rc": "$.appointment.id",
+      "label_ref": "dto:AppointmentDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:patientId",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "json_path_rc": "$.appointment.patientId",
+      "label_ref": "dto:AppointmentDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:doctorId",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "doctorId",
+      "rel_path": "doctorId",
+      "json_path_rc": "$.appointment.doctorId",
+      "label_ref": "dto:AppointmentDto.doctorId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:scheduledAt",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "scheduledAt",
+      "rel_path": "scheduledAt",
+      "json_path_rc": "$.appointment.scheduledAt",
+      "label_ref": "dto:AppointmentDto.scheduledAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:reason",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "reason",
+      "rel_path": "reason",
+      "json_path_rc": "$.appointment.reason",
+      "label_ref": "dto:AppointmentDto.reason",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "DYNAMIC"
+      ],
+      "kind": "hard",
+      "why": "причина визита = жалоба пациента"
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:room",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "room",
+      "rel_path": "room",
+      "json_path_rc": "$.appointment.room",
+      "label_ref": "dto:AppointmentDto.room",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:request:status",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "request_body",
+      "name": "status",
+      "rel_path": "status",
+      "json_path_rc": "$.appointment.status",
+      "label_ref": "dto:AppointmentDto.status",
+      "type": "String",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:id",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "id",
+      "rel_path": "id",
+      "label_ref": "dto:AppointmentDto.id",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:patientId",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "patientId",
+      "rel_path": "patientId",
+      "label_ref": "dto:AppointmentDto.patientId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "PII_INDIRECT",
+      "accept": [],
+      "kind": "hard",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:doctorId",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "doctorId",
+      "rel_path": "doctorId",
+      "label_ref": "dto:AppointmentDto.doctorId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "GRAY",
+      "accept": [],
+      "kind": "gray",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:scheduledAt",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "scheduledAt",
+      "rel_path": "scheduledAt",
+      "label_ref": "dto:AppointmentDto.scheduledAt",
+      "type": "Instant",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:reason",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "reason",
+      "rel_path": "reason",
+      "label_ref": "dto:AppointmentDto.reason",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "HEALTH",
+      "accept": [
+        "DYNAMIC"
+      ],
+      "kind": "hard",
+      "why": "причина визита = жалоба пациента"
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:room",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "room",
+      "rel_path": "room",
+      "label_ref": "dto:AppointmentDto.room",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments:response:status",
+      "method": "POST",
+      "path": "/api/appointments",
+      "location": "response_body",
+      "name": "status",
+      "rel_path": "status",
+      "label_ref": "dto:AppointmentDto.status",
+      "type": "String",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/equipment/{equipmentId}/charge:param:equipmentId",
+      "method": "GET",
+      "path": "/api/equipment/{equipmentId}/charge",
+      "location": "param",
+      "in": "path",
+      "name": "equipmentId",
+      "rel_path": "equipmentId",
+      "label_ref": "param:GET /api/equipment/{equipmentId}/charge:equipmentId",
+      "type": "Long",
+      "observable": {
+        "route_candidates": true,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/equipment/{equipmentId}/charge:response:level",
+      "method": "GET",
+      "path": "/api/equipment/{equipmentId}/charge",
+      "location": "response_body",
+      "name": "level",
+      "rel_path": "level",
+      "label_ref": "dto:ChargeStatusDto.level",
+      "type": "Integer",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": "заряд батареи прибора"
+    },
+    {
+      "id": "clinic:GET /api/equipment/{equipmentId}/charge:response:charging",
+      "method": "GET",
+      "path": "/api/equipment/{equipmentId}/charge",
+      "location": "response_body",
+      "name": "charging",
+      "rel_path": "charging",
+      "label_ref": "dto:ChargeStatusDto.charging",
+      "type": "Boolean",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/equipment/{equipmentId}/charge:response:lastServiceDate",
+      "method": "GET",
+      "path": "/api/equipment/{equipmentId}/charge",
+      "location": "response_body",
+      "name": "lastServiceDate",
+      "rel_path": "lastServiceDate",
+      "label_ref": "dto:ChargeStatusDto.lastServiceDate",
+      "type": "LocalDate",
+      "observable": {
+        "route_candidates": false,
+        "openapi": true
+      },
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    }
+  ],
+  "endpoints": [
+    {
+      "id": "clinic:GET /api/patients/{patientId}",
+      "method": "GET",
+      "path": "/api/patients/{patientId}",
+      "handler": "PatientController.getPatient",
+      "expect": [
+        "HEALTH",
+        "PII_DIRECT"
+      ],
+      "allow": [],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/patients",
+      "method": "POST",
+      "path": "/api/patients",
+      "handler": "PatientController.registerPatient",
+      "expect": [
+        "HEALTH",
+        "PII_DIRECT"
+      ],
+      "allow": [],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/search",
+      "method": "GET",
+      "path": "/api/patients/search",
+      "handler": "PatientController.searchPatients",
+      "expect": [
+        "HEALTH",
+        "PII_DIRECT"
+      ],
+      "allow": [],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": true
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/patients/{patientId}/records",
+      "method": "GET",
+      "path": "/api/patients/{patientId}/records",
+      "handler": "MedicalRecordController.listRecords",
+      "expect": [
+        "HEALTH"
+      ],
+      "allow": [
+        "PII_DIRECT"
+      ],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": "записи привязаны к пациенту, но прямых идентификаторов в них нет"
+    },
+    {
+      "id": "clinic:POST /api/patients/{patientId}/records",
+      "method": "POST",
+      "path": "/api/patients/{patientId}/records",
+      "handler": "MedicalRecordController.addRecord",
+      "expect": [
+        "HEALTH"
+      ],
+      "allow": [
+        "PII_DIRECT"
+      ],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/{resultId}",
+      "method": "GET",
+      "path": "/api/lab-results/{resultId}",
+      "handler": "LabResultController.getLabResult",
+      "expect": [
+        "HEALTH"
+      ],
+      "allow": [],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/lab-results/export",
+      "method": "GET",
+      "path": "/api/lab-results/export",
+      "handler": "LabResultController.exportLabResults",
+      "expect": [
+        "HEALTH"
+      ],
+      "allow": [],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": true
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/appointments",
+      "method": "GET",
+      "path": "/api/appointments",
+      "handler": "AppointmentController.listAppointments",
+      "expect": [
+        "PII_INDIRECT"
+      ],
+      "allow": [
+        "HEALTH"
+      ],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:POST /api/appointments",
+      "method": "POST",
+      "path": "/api/appointments",
+      "handler": "AppointmentController.bookAppointment",
+      "expect": [
+        "PII_INDIRECT"
+      ],
+      "allow": [
+        "HEALTH"
+      ],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    },
+    {
+      "id": "clinic:GET /api/equipment/{equipmentId}/charge",
+      "method": "GET",
+      "path": "/api/equipment/{equipmentId}/charge",
+      "handler": "EquipmentController.getChargeStatus",
+      "expect": [],
+      "allow": [],
+      "attrs": {
+        "is_admin_path": false,
+        "is_bulk_operation": false
+      },
+      "why": ""
+    }
+  ],
+  "constants": [
+    {
+      "id": "clinic:const:ClinicIntegration.DEMO_PATIENT_SNILS",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "DEMO_PATIENT_SNILS",
+      "value_preview": "176-543-210 76",
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": "СНИЛС, контрольная сумма верна"
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.BROKEN_PATIENT_SNILS",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "BROKEN_PATIENT_SNILS",
+      "value_preview": "176-543-210 77",
+      "expect": "NONE",
+      "accept": [],
+      "kind": "trap",
+      "why": "контрольная сумма неверна"
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.ICD_CODE_DIABETES",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "ICD_CODE_DIABETES",
+      "value_preview": "E11.9",
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": "код из справочника МКБ, не данные пациента"
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.LAB_GATEWAY_URL",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "LAB_GATEWAY_URL",
+      "value_preview": "https://lab-gw.internal.example/api",
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": ""
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.LAB_API_KEY",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "LAB_API_KEY",
+      "value_preview": "lab_api_key=f3c9a1b27d4e8f6a0b5c3d9e",
+      "expect": "AUTH",
+      "accept": [],
+      "kind": "positive",
+      "why": "ключ лабораторного шлюза"
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.LEGACY_HIS_HOST",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "LEGACY_HIS_HOST",
+      "value_preview": "10.20.30.40",
+      "expect": "NONE",
+      "accept": [],
+      "kind": "plain",
+      "why": "приватный адрес"
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.PACS_PUBLIC_IP",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "PACS_PUBLIC_IP",
+      "value_preview": "203.0.113.15",
+      "expect": "NONE",
+      "accept": [],
+      "kind": "trap",
+      "why": "IP сервера PACS: инфраструктура, не персональные данные"
+    },
+    {
+      "id": "clinic:const:ClinicIntegration.DOCTOR_EMAIL_SAMPLE",
+      "file_path": "src/main/java/ru/testbed/clinic/config/ClinicIntegration.java",
+      "symbol": "DOCTOR_EMAIL_SAMPLE",
+      "value_preview": "a.sidorova@clinic.example",
+      "expect": "PII_DIRECT",
+      "accept": [],
+      "kind": "positive",
+      "why": "личная почта врача"
+    }
+  ]
+}
